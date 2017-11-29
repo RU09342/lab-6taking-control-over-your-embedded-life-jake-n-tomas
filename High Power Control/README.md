@@ -1,16 +1,40 @@
-# Lab 6: "High Power" Control
-For starters, you will not be dealing with anything that is truly "high power". Instead, what I am considering "high power" is anything with the potential to damage or fry your microcontrollers if you were to drive them directly. The idea behind this part of the lab is to learn how not only to drive things that may require a high voltage or high current, but how to then protect your microcontroller from them.
+### Jake Fraser and Tomas Uribe
 
-## Switching
-Most of you have used one of the types of switching circuits to control the RGB LEDs. For this part of the lab, you need to focus on the different types of switching circuits along with the differences in inductive and resistive loads.
+## Lab Exercise 6: Sensing the World Around You
+## High Power Control
+## Relay and Mosfet Switching
 
-### Relays
-A relay is a electro-mechanical system which can open and close a switch based on an input. 
-![Relay](https://www.phidgets.com/docs/images/1/1d/3051_1_Relay_Diagram.jpg)
-These are extremely useful in situations where large amounts of current need to flow, such as in automotive applications, but they do have their limits. For starters, since the actuation process requires a constant current, sometimes this can be too much for your processor to handle. Second, a lot of these relays require higher than 3.3V, which limits how you can actually turn these things on and off. Using the MSP430G2553, control the state of a relay to drive a power resistor with +12V. Your README for this part should include a screenshot of the output of your MSP and the voltage across the resistor. Try to figure out the switching speed limitations of the relay experimentally.
+## Relay Switch
+In this section, two circuits were built in order to test the differences between two different types of switches. First, a MAD S 112 C relay was connected
+appropriately to take in a square wave as an input, with a power resistor on the output to simulate a load.
+Inside of the relay, there is an inductor that will have a voltage differential across it. This voltage differential consists of the square wave input and ground. 
+The output pin (middle) will switch between the two outer pins (ground and 12 V) whenever the input is switched, which induces a current. 
+Because the input is a square wave, the relay will switch between 12 V and ground whenever the square wave swicthes from 3.3 V to ground. This is incredibly useful, 
+allowing the user to control the voltage of an output pin, based on an input at any specific time. Since there is no direct electrical connection between the input and the output,
+ the current draw of the relay is 0 A. An oscilloscope screenshot of the output of the relay vs the input signal can be seen below.
 
-### MOSFET Switching
-The MOSFET switch is a very simple circuit which can be used in a multitude of applications. One of the most important features of the MOSFET Switch is the near zero current it takes to switch the MOSFET from an on to an off state. There are two main architectures, low-side and high-side switch, each requiring a different type of MOSFET. Using the MSP430G2553, drive a power resistor with +12V in the same fashion as the relay. Obtain an MSP430G2553 voltage output along with the voltage through the power resistor. Try to figure out the switching speed limitations of the MOSFET experimentally.
+![alt text] (https://github.com/RU09342/lab-6taking-control-over-your-embedded-life-jake-n-tomas/blob/master/High%20Power%20Control/scope_1.png)
 
-## Deliverables
-Along with what was asked in each part, you will need to utilize the DMM to determine what the current draw from each switch is and if that falls into spec with the Microcontroller. You need to then come up with the best configuration you can think of using to control something that requires large current, but also protects your processor from damage. The reason I am asking you to do this with just the G2553 is: A) The code is just generating a square wave, and B) this part of the lab runs the highest chance of damaging your parts and we have spare G2553's just in case.
+At some point, the frequency will be so high that the relay will stop switching. This is because the input is switching so fast that 
+the inductor cannot induce a current fast enough to switch the output. In this experiment, the maximum operating frequency of the relay was found to be 130 Hz. As seen below, the 
+the output starts to become disfigured at its maximum operating frequency. 
+
+![alt text] (https://github.com/RU09342/lab-6taking-control-over-your-embedded-life-jake-n-tomas/blob/master/High%20Power%20Control/scope_2.png)
+
+## MOSFET Switch
+Next, a low side switch was created using a 2N7000 NMOS along with a 50 Ohm, 10 W power resistor. As an input, a square wave was 
+used to switch between 12 V and ground. When the input square wave is high at 3.3 V, the output of the lowside switch will be 0 V, and when 
+the input is low at 0 V, the output will be high at 12 V. Therefore, the output of the MOSFET is constantly switching between 0 and 12 V. 
+The input vs output plot can be seen below.
+
+![alt text] (https://github.com/RU09342/lab-6taking-control-over-your-embedded-life-jake-n-tomas/blob/master/High%20Power%20Control/scope_3.png)
+
+From here, the maximum operating frequency of the low side switch was found by increasing the frequency of the input signal until 
+the NMOS failed. This happened when the input was increased to approximately 200 Hz. This can be seen below, where the output signal is slightly disfigured. 
+
+![alt text] (https://github.com/RU09342/lab-6taking-control-over-your-embedded-life-jake-n-tomas/blob/master/High%20Power%20Control/scope_4.png)
+
+# Overall
+Once the experiment was completed, the results were analyzed to see which switch is better in a situation which uses a microprocessor. 
+ Since each type of switch draws no current, it is mostly up to maximum operating frequency. In this case, the low side switch has a higher maximum 
+ operating frequency than the relay. Because of this, the low side switch is favorable in this situation.    spare G2553's just in case.
