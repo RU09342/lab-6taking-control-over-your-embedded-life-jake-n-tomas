@@ -1,11 +1,16 @@
 # Lab 6: Precision Control
-Some applications require large amounts of voltage or current, so switching techniques must be used in order to provide the desired output. Other cases however require a finer control over the voltage or current going into them (some even require a control over resistance). So far you have looked at PWM to control the brightness of an LED, is there a way to use this to output a specified voltage or current, or even a specific waveform?
 
 ## PWM Part 2
-Since you already have the code to perform PWM, then really, the software side of this part of the lab is fairly easy. You need to design a system which can take in a PWM duty cycle over something like UART (or you could have your system read in the position of a potentiometer), and produce that signal on a GPIO. The interesting part comes in when I want the output of your system to be an Analog voltage. In this case, a PWM with a 50% duty cycle should produce roughly Vcc/2 volts. This part of the lab should be done with the MSP430F5529 and the physical circuit should be constructed of an active Low-Pass Filter.
+The code for the PWM was implemented using a hardware approach. Using one CCR to determine the frequency and another to determine the duty cycle, a PWM signal could be output to a pin. The PWM then was able to convert a digital voltage into an analog reading. This analog voltage could then be read from the pin that the PWM is output to. To test this code a triangle wave was coded and then implemented to see the range of voltages that the PWM could output. The triangle wave produced by the PWM can be seen below compared to a similar wave produced by a function generator
+ 
+FIGURE
 
 ## R2R DAC
-What if your system is noise sensitive or possibly needs more precision than just a PWM signal, you might need to look into using an actual Digital-to-Analog converter. One of the simplest DAC architectures is a R2R ladder. Using the MSP430F5529, you need to generate an 8-bit R2R ladder circuit that can produce "255" voltages between 0V and Vcc. Now how are you actually going to test this, cause I am sure you aren't going to measure 255 voltages on the DMM. You should set up your F5529 so it generates a staircase using a binary counter and then record on the oscilloscope the resulting waveform.
+To implement the R2R DAC, the circuit seen below was used. 
+
+FIGURE
+
+This circuit was able to take individual bits of a digital signal at each node of the circuit and then output an equivalent analog voltage. Since there is 8 nodes on the circuit the digital signal could vary from varied from 0-255. In a different bit of a digital volatge signa was putput to an independent pin by masking the desired signal 8 different times to save the value of each bit into a separate variable. These varaible were called bit0-bit7 and represented their respective bit of the digital signal. The variables were then ouptut to pins and connected to their respective node on the R2R circuit. To test the range of the 
 
 ## Loading Effects
 Obviously you are going to be making this type of circuitry to drive something. This introduces the idea of loading effect, wherein your circuit will perform differently based on what is going to be attached to it. For each of these implementations, try placing a variety of resistors from 100 ohms up to see what happens to your output signal and comment on what is happening.
