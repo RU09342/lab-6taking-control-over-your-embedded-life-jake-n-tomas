@@ -21,7 +21,7 @@ To implement the R2R DAC, the circuit seen below was used.
 This circuit was able to take individual bits of a digital signal at each node of the circuit and then output an equivalent analog voltage. 
 Depending on which bits in the input are set to 0 and 1, the output voltage will have a corresponding stepped voltage between 0 and Vref minus the value of the minimal step, corresponding to bit 0.
 Since there is 8 nodes on the circuit the digital signal could vary from 0-255.
-A digital voltage signal was output to independent pins by masking the desired signal 8 different times to save the values of each bit into separate variables. These varaible were called bit0-bit7 and represented their respective bit of the digital signal. 
+A digital voltage signal was output to independent pins by masking the desired signal 8 different times to save the values of each bit into separate variables. These variables were called bit0-bit7 and represented their respective bit of the digital signal. 
 The variables were then output to pins and connected to their respective node on the R2R circuit. To test the range, a step function was created to visualize an increasing voltage on the output of the R2R circuit. This step function was 
 created on the MSP430G2553, and can be seen in the figure below. 
 

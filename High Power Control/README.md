@@ -9,14 +9,14 @@ In this section, two circuits were built in order to test the differences betwee
 appropriately to take in a square wave as an input, with a power resistor on the output to simulate a load.
 Inside of the relay, there is an inductor that will have a voltage differential across it. This voltage differential consists of the square wave input and ground. 
 The output pin (middle) will switch between the two outer pins (ground and 12 V) whenever the input is switched, which induces a current. 
-Because the input is a square wave, the relay will switch between 12 V and ground whenever the square wave swicthes from 3.3 V to ground. This is incredibly useful, 
+Because the input is a square wave, the relay will switch between 12 V and ground whenever the square wave switches from 3.3 V to ground. This is incredibly useful, 
 allowing the user to control the voltage of an output pin, based on an input at any specific time. Since there is no direct electrical connection between the input and the output,
  the current draw of the relay is 0 A. An oscilloscope screenshot of the output of the relay vs the input signal can be seen below.
 
 ![alt text](https://github.com/RU09342/lab-6taking-control-over-your-embedded-life-jake-n-tomas/blob/master/High%20Power%20Control/scope_1.png)
 
 At some point, the frequency will be so high that the relay will stop switching. This is because the input is switching so fast that 
-the inductor cannot induce a current fast enough to switch the output. In this experiment, the maximum operating frequency of the relay was found to be 130 Hz. As seen below, the 
+the inductor cannot induce a current fast enough to switch the output. In this experiment, the maximum operating frequency of the relay was found to be 130 Hz. As seen below,
 the output starts to become disfigured at its maximum operating frequency. 
 
 ![alt text](https://github.com/RU09342/lab-6taking-control-over-your-embedded-life-jake-n-tomas/blob/master/High%20Power%20Control/scope_2.png)
