@@ -2,7 +2,7 @@
 
 ## Lab Exercise 6: Sensing the World Around You
 # Open Loop Control System 
-![alt text](https://github.com/RU09342/lab-6taking-control-over-your-embedded-life-jake-n-tomas/blob/master/Open%20Loop%20Systems/OpenLoopCircuit.jpg)
+
 # Processor Selection 
 The processor selected for this portion of the lab was the MSP430G2553 for its versatility and furthermore, its replacability. Since the processor on the G2 can be removed and replaced, this was seen as a very favorable attribute as the processor was likely to get damaged using such high voltages.
 
