@@ -11,7 +11,7 @@ This analog voltage could then be read from the pin that the PWM is output to. T
 implemented to see the range of voltages that the PWM could output. 
 The triangle wave produced by the PWM can be seen below compared to a similar wave produced by a function generator
  
-[!alt text](https://github.com/RU09342/lab-6taking-control-over-your-embedded-life-jake-n-tomas/blob/master/Precision%20Control/scope_6.png)
+![alt text](https://github.com/RU09342/lab-6taking-control-over-your-embedded-life-jake-n-tomas/blob/master/Precision%20Control/scope_6.png)
 
 ## R2R DAC
 To implement the R2R DAC, the circuit seen below was used. 
