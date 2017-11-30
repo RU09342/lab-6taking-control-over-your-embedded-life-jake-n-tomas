@@ -11,6 +11,7 @@ The circuit that was designed for this portion of the lab was built using three 
 
 ![alt text](https://github.com/RU09342/lab-6taking-control-over-your-embedded-life-jake-n-tomas/blob/master/Open%20Loop%20Systems/OpenLoopCircuit.jpg)
 
+
 # Code Functionality 
 The main function of the software for the open loop control system was to produce a PWM signal with a duty cycle depending on the desired temperature set by the user. Through UART,the user was able to send a desired temperature to the MSP430G2530. Within the code, the received temperature was then passed to a function called setDutyCycle which correlated the given temperature to an appropriate duty cycle. This duty cycle was then used in a function called setPWM which was used to set the capture compare register that was output to the NMOS switch, controlling the fan. In order to correctly model the data an excel spreadsheet was made comparing the duty cycle of the PWM and the temperature read by the temperature sensor. The data can be seen below. 
 
