@@ -90,7 +90,7 @@ void OutputInit(){
 
 void OutputSet(int values){
 
-    int bit0 = values & BIT0;
+    int bit0 = values & BIT0;				//Masks bits of input into corresponding variables
     int bit1 = values & BIT1;
     int bit2 = values & BIT2;
     int bit3 = values & BIT3;
@@ -99,8 +99,8 @@ void OutputSet(int values){
     int bit6 = values & BIT6;
     int bit7 = values & BIT7;
 
-    if(bit0){
-        P6OUT |= BIT0;
+    if(bit0){								//Each variable, corresponding to the bit of input is sent to its own pin. 
+        P6OUT |= BIT0;			
     }
     else{
         P6OUT&= ~BIT0;

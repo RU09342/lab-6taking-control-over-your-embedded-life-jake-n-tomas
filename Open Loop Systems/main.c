@@ -77,11 +77,11 @@ void setDutyCycle(int temp){ 					//Models system behavior
         setPWM(0);
     }
     else if(temp > 31){
-        long pwm = ((temp * -84) / 100) + 63; 
+        long pwm = ((temp * -84) / 100) + 63;  //Uses the equation y = -0.8367x + 62.693 to predict a duty cycle for any temp between 76C-31C
         setPWM(pwm);
     }
     else if(temp > 20){
-        long pwm = ((temp * -49) / 10) + 187;
+        long pwm = ((temp * -49) / 10) + 187;	//Uses the equation y = -4.9013x + 187.28 to predict a duty cycle for any temp between 30C-20C
         setPWM(pwm);
     }
     else{
@@ -90,7 +90,7 @@ void setDutyCycle(int temp){ 					//Models system behavior
 }
 
 void setPWM(unsigned int bitDuty){
-    if(bitDuty>100){
+    if(bitDuty>100){				//Makes sure that input cannot exceed 100% duty cycle
         bitDuty = 100;
     }
     bitDuty = bitDuty * 10;			//Set duty cycle of PWM
