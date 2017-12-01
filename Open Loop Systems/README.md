@@ -17,7 +17,7 @@ The main function of the software for the open loop control system was to produc
 
 ![alt text](https://github.com/RU09342/lab-6taking-control-over-your-embedded-life-jake-n-tomas/blob/master/Open%20Loop%20Systems/TempvsDutyCycle.JPG)
 
-This data was then split up into 2 different data sets and then independently linearized. The temperature regions that were detemined by the graph above were 76C-31C and 30C-20C. Each produced a line of best fit of y = -0.8367x + 62.693 and y = -4.9013x + 187.28 respectively. This process allowed the processor to determine at what duty cycle the PWM had to be set, depending on the temperature that the analog to digital converter read. Ultimately, the linearization of data was what caused the fan to change speeds in order to let the voltage regulator reach the temperature assigned by the user. The two figures below depict the lines of best fit of the 76C-31C and 23C-20C temperature regions respectively.
+This data was then split up into 2 different data sets and then independently linearized. The temperature regions that were detemined by the graph above were 76C-31C and 30C-20C. Each produced a line of best fit of y = -0.8367x + 62.693 and y = -4.9013x + 187.28 respectively. This process allowed the processor to determine at what duty cycle the PWM had to be set, depending on the temperature that the analog to digital converter read. Ultimately, the linearization of data was what caused the fan to change speeds in order to let the voltage regulator reach the temperature assigned by the user. The two figures below depict the lines of best fit of the 76C-31C and 30C-20C temperature regions respectively.
 
 76C-31C
 
