@@ -26,3 +26,7 @@ This data was then split up into 2 different data sets and then independently li
 30C-20C
 
 ![alt text](https://github.com/RU09342/lab-6taking-control-over-your-embedded-life-jake-n-tomas/blob/master/Open%20Loop%20Systems/temp23-20.JPG)
+
+In order to visualize the temperature values read by the temperature sensor, its output was connected to an oscilloscope. The results below show the temperature dropping from 58C to a desired temperature of 40C.
+
+![alt text](https://github.com/RU09342/lab-6taking-control-over-your-embedded-life-jake-n-tomas/blob/master/Open%20Loop%20Systems/temp58-40.gif)
