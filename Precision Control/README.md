@@ -8,7 +8,7 @@
 The code for the PWM was implemented using a hardware approach. Using one CCR to determine the frequency and another to determine the duty cycle, 
 a PWM signal could be output to a pin. The PWM then was able to convert a digital voltage into an analog reading. 
 This analog voltage could then be read from the pin that the PWM is output to. To test this code a triangle wave was coded and then 
-implemented to see the range of voltages that the PWM could output. 
+implemented to see the range of voltages that the PWM could output. In order to get a clean output, the signal was put through a passive lowpass filter, with a cutoff frequency of 500 Hz. 
 The triangle wave produced by the PWM can be seen below compared to a similar wave produced by a function generator
  
 ![alt text](https://github.com/RU09342/lab-6taking-control-over-your-embedded-life-jake-n-tomas/blob/master/Precision%20Control/scope_6.png)
@@ -31,3 +31,14 @@ Next, the triangle wave was generated from the  R2R ladder network. This was don
  However, in this case, the output had a phase shift of about 90 degrees. The output of this circuit versus a triangle produced by a function generator can be seen below.
 
 ![alt text](https://github.com/RU09342/lab-6taking-control-over-your-embedded-life-jake-n-tomas/blob/master/Precision%20Control/scope_5.png)
+
+## Bill of Materials
+#R2R Ladder
+-1k Ohm resistors
+
+-2k Ohm resistors
+
+#Passive Lowpass Filter for PWM
+-3k Ohm resistor 
+
+-100 nF capacitor
